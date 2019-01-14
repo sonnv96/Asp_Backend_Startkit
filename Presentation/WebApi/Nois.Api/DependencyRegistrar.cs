@@ -5,6 +5,7 @@ using Nois.Services.Histories;
 using Nois.WebApi.Framework;
 using Nois.Framework.Histories;
 using Nois.Services.Data;
+using Nois.Services.Products;
 
 namespace Nois.Api
 {
@@ -39,6 +40,7 @@ namespace Nois.Api
             builder.RegisterType<UserRegistrationService>().As<IUserRegistrationService>().InstancePerLifetimeScope();
             builder.RegisterType<ActionNameService>().As<IActionNameService>().InstancePerLifetimeScope();
             builder.RegisterType<WorkContext>().As<IWorkContext>().InstancePerLifetimeScope();
+            builder.RegisterType<ProductService>().As<IProductService>().InstancePerLifetimeScope();
 
             //history
             builder.RegisterType<CustomHistoryService>().As<IHistoryService>().InstancePerLifetimeScope();

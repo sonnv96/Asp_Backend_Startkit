@@ -44,6 +44,8 @@
     <Compile Include="Authentication\RefreshTokenService.cs" />
     <Compile Include="Data\IWorkContext.cs" />
     <Compile Include="Histories\CustomHistoryService.cs" />
+    <Compile Include="Products\IProductService.cs" />
+    <Compile Include="Products\ProductService.cs" />
     <Compile Include="Users\ActionNameService.cs" />
     <Compile Include="Users\IActionNameService.cs" />
     <Compile Include="Users\IPermissionService.cs" />

@@ -84,6 +84,7 @@
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\LocalStringResourceController.cs" />
     <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="DependencyRegistrar.cs" />
     <Compile Include="Models\Backups\BackupModel.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Models\Histories\HistoryModel.cs" />
     <Compile Include="Models\Languages\LanguageModel.cs" />
     <Compile Include="Models\LocalStringResources\LocaleStringResourceModel.cs" />
+    <Compile Include="Models\Products\ProductModel.cs" />
     <Compile Include="Models\Users\ChangePasswordModel.cs" />
     <Compile Include="Models\Users\ChangePinModel.cs" />
     <Compile Include="Models\Users\ResetPasswordModel.cs" />

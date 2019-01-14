@@ -14,6 +14,7 @@ using Nois.Framework.Services;
 using Nois.Framework.Settings;
 using Nois.Framework.Loggings;
 using Nois.Framework.Localization;
+using Nois.Services.Products;
 
 namespace Nois.Api.Controllers
 {
@@ -110,6 +111,8 @@ namespace Nois.Api.Controllers
         /// localization service
         /// </summary>
         protected ILocalizationService _localizationService { get { return GetService<ILocalizationService>(); } }
+
+        protected IProductService _productService { get { return GetService<IProductService>(); } }
         #endregion
 
         #region Methods
