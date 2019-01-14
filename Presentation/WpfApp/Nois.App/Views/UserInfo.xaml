@@ -1,0 +1,35 @@
+﻿<Window x:Class="Nois.App.Views.UserInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nois.App.Views"
+        mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen"
+        BorderBrush="Purple" BorderThickness="1">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/Nois.App;component/Resources/Images/userimage.png" Width="150" Height="150" Margin="20" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Text="{Binding User.Username}" HorizontalAlignment="Center" Margin="10" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="2" Text="Full name:" HorizontalAlignment="Left" Margin="50 20" FontSize="16"/>
+        <TextBlock Grid.Row="3" Text="Email:" HorizontalAlignment="Left" Margin="50 20" FontSize="16"/>
+        <TextBlock Grid.Row="4" Text="Phone:" HorizontalAlignment="Left" Margin="50 20" FontSize="16"/>
+        <TextBlock Grid.Row="5" Text="Gender:" HorizontalAlignment="Left" Margin="50 20" FontSize="16"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding User.FullName}" HorizontalAlignment="Left" Margin="50 20" FontSize="16"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding User.Email}" HorizontalAlignment="Left" Margin="50 20" FontSize="16"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding User.Phone}" HorizontalAlignment="Left" Margin="50 20" FontSize="16"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding User.Gender}" HorizontalAlignment="Left" Margin="50 20" FontSize="16"/>
+        <Button Content="Close" HorizontalAlignment="Center" Grid.Row="6" Grid.ColumnSpan="2" Margin="20" Command="{Binding HideCommand}"/>
+    </Grid>
+</Window>

@@ -1,0 +1,56 @@
+﻿<Window x:Class="Nois.App.Login.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nois.App.Login.Views"
+        xmlns:Library="clr-namespace:Nois.WpfApp.Framework.View;assembly=Nois.WpfApp.Framework"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/Nois.App.Login;component/Resources/Images/background.jpeg"/>
+    </Window.Background>
+    <Grid>
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.Style>
+                <Style TargetType="{x:Type Grid}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementFocus}" Value="username">
+                            <Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=username}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementFocus}" Value="password">
+                            <Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=password}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Grid Opacity="0.6" Background="Black" Grid.Row="1" Grid.RowSpan="4"/>
+            <Grid Background="White" Opacity="0.7"/>
+            <Image Source="/Nois.App.Login;component/Resources/Images/qxpress.png" Width="300" Height="300" HorizontalAlignment="Center" Margin="0,-100,0,10" Grid.RowSpan="2"/>
+            <DockPanel Grid.Row="1">
+                <materialDesign:PackIcon Kind="Account" DockPanel.Dock="Right" VerticalAlignment="Center" Width="25" Height="25" Margin="-50 0 0 0" Foreground="{Binding ElementName=username, Path=BorderBrush}"/>
+                <TextBox x:Name="username" Text="{Binding Username}" BorderBrush="White" Foreground="White" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="5" Width="300" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Username" TabIndex="1"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2">
+                <materialDesign:PackIcon Kind="LockOpen" DockPanel.Dock="Right" VerticalAlignment="Center" Width="25" Height="25" Margin="-50 0 0 0" Foreground="{Binding ElementName=password, Path=BorderBrush}"/>
+                <PasswordBox x:Name="password" Library:PasswordBoxAssistant.BindPassword="True" Library:PasswordBoxAssistant.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="White" Foreground="White" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="5" Width="300" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Password" TabIndex="2"/>
+            </DockPanel>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Message}" VerticalAlignment="Top" Grid.Row="3" Foreground="#FFDC2800" Visibility="{Binding ShowHideMessage}" Margin="0 10 0 0"/>
+            <Button Content="Login Now" Command="{Binding LoginClick}" FontSize="20" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30" Width="300" Height="55" TabIndex="3" IsDefault="True">
+                <Button.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding LoginClick}"/>
+                </Button.InputBindings>
+            </Button>
+        </Grid>
+        <Button Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" Height="25" BorderBrush="{x:Null}" Background="Transparent" Foreground="White" Command="{Binding Closing}" Style="{x:Null}"/>
+        <Button Content="_" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" Height="25" BorderBrush="{x:Null}" Background="Transparent" Foreground="White" Command="{Binding Minimize}" Style="{x:Null}" Margin="0 0 30 0"/>
+    </Grid>
+</Window>
+

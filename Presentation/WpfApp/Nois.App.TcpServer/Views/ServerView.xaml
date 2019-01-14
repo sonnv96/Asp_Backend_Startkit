@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="Nois.App.TcpServer.Views.ServerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit" 
+             xmlns:local="clr-namespace:Nois.App.TcpServer.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!--Material color-->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/materialdesigncolor.teal.xaml" />
+
+                <!--Material theme cơ bản-->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+
+                <!--Các Style cần dùng-->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.button.xaml" />
+                <!--My resource-->
+                <ResourceDictionary>
+                    <!--Màu của tôi-->
+                    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource Primary100}"/>
+                    <!--Màu của tôi-->
+
+                    <!--Các màu chủ đạo của gói material design-->
+                    <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="{StaticResource Primary100}"/>
+                    <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="{StaticResource Primary100Foreground}"/>
+                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource Primary500}"/>
+                    <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="{StaticResource Primary500Foreground}"/>
+                    <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="{StaticResource Primary700}"/>
+                    <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="{StaticResource Primary700Foreground}"/>
+                    <!--Các màu chủ đạo của gói material design-->
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <materialDesign:PackIcon Kind="Account" HorizontalAlignment="Left" Margin="10 20 10 10"/>
+        <TextBox Text="{Binding IP}" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Margin="30 0 0 0" materialDesign:HintAssist.Hint="IP Address">
+            <TextBox.Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                    <Setter Property="IsEnabled" Value="True"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=btnStart, Path=IsEnabled}" Value="False">
+                            <Setter Property="IsEnabled" Value="False" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <materialDesign:PackIcon Kind="SerialPort" HorizontalAlignment="Left" Margin="150 20 10 10"/>
+        <TextBox Text="{Binding Port}" VerticalAlignment="Center" HorizontalAlignment="Left" Width="60" Margin="170 0 0 0" materialDesign:HintAssist.Hint="Port">
+            <TextBox.Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                    <Setter Property="IsEnabled" Value="True"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=btnStart, Path=IsEnabled}" Value="False">
+                            <Setter Property="IsEnabled" Value="False" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox Grid.Row="2" Text="{Binding Message}" HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="220" Margin="10" TextWrapping="Wrap"/>
+        <!--<toolkit:RichTextBox Grid.Row="2" Text="{Binding Message}" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="350" Margin="10" VerticalScrollBarVisibility="Auto"/>-->
+        <Button Name="btnStart" Grid.Row="1" IsEnabled="{Binding StartButton}" Content="Start" Command="{Binding StartClick}" CommandParameter="{Binding}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="25" Margin="10" Style="{StaticResource MaterialDesignRaisedButton}"/>
+        <Button Name="btnStop" BorderBrush="#d85b5b" Background="#d85b5b" Grid.Row="1" Content="Stop" Command="{Binding StopClick}" CommandParameter="{Binding}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="25" Margin="100,10,0,10">
+            <Button.Style>
+                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=btnStart, Path=IsEnabled}" Value="False">
+                            <Setter Property="IsEnabled" Value="True" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Content="+" Command="{Binding AddClick}" CommandParameter="{Binding}" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="25" Margin="190,10,10,10"/>
+        <Button Grid.Row="3" Name="btnSend" Content="Send" Command="{Binding SendClick}" CommandParameter="{Binding}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Height="25" Margin="10">
+            <Button.Style>
+                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=btnStart, Path=IsEnabled}" Value="False">
+                            <Setter Property="IsEnabled" Value="True" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <RadioButton IsChecked="{Binding IsAuto}" Style="{StaticResource MaterialDesignRadioButton}" Name="rbAuto" GroupName="{Binding RdGroup}" Content="Auto" Grid.Row="4" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBox Text="{Binding TimeAuto}" Grid.Row="4" Margin="80 10 0 10" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" materialDesign:HintAssist.Hint="milisecond">
+            <TextBox.Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=rbAuto, Path=IsChecked}" Value="True">
+                            <Setter Property="IsEnabled" Value="True" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <RadioButton GroupName="{Binding RdGroup}" IsChecked="True" Content="Manual" Grid.Row="5" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignRadioButton}"/>
+    </Grid>
+</UserControl>

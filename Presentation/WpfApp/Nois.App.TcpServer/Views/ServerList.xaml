@@ -1,0 +1,22 @@
+﻿<Window x:Class="Nois.App.TcpServer.Views.ServerList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nois.App.TcpServer.Views"
+             mc:Ignorable="d" SizeToContent="WidthAndHeight" Title="Server" ResizeMode="NoResize">
+    <Grid>
+        <ItemsControl x:Name="ClientControl" ItemsSource="{Binding ControlList}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel IsItemsHost="True" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type local:ServerView}">
+                    <local:ServerView/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Window>
