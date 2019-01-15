@@ -42,6 +42,8 @@
     <Compile Include="Authentication\IClientService.cs" />
     <Compile Include="Authentication\IRefreshTokenService.cs" />
     <Compile Include="Authentication\RefreshTokenService.cs" />
+    <Compile Include="Categories\CategoryService.cs" />
+    <Compile Include="Categories\ICategoryService.cs" />
     <Compile Include="Data\IWorkContext.cs" />
     <Compile Include="Histories\CustomHistoryService.cs" />
     <Compile Include="Products\IProductService.cs" />

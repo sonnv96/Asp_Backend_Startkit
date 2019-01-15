@@ -12,6 +12,12 @@ namespace Nois.Core.Domain
         /// Name of product
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// CategoryID of product
+        /// </summary>
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
     }
 
     /// <summary>
@@ -23,6 +29,11 @@ namespace Nois.Core.Domain
         {
             this.ToTable("Product");
             this.HasKey(c => c.Id);
+
+            this.HasRequired(x => x.Category)
+                .WithMany()
+                .HasForeignKey(x => x.CategoryId)
+                .WillCascadeOnDelete(true);
         }
     }
 }

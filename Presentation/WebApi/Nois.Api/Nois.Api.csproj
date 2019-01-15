@@ -78,6 +78,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BackupController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\FixingController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="DependencyRegistrar.cs" />
     <Compile Include="Models\Backups\BackupModel.cs" />
+    <Compile Include="Models\Categories\CategoryModel.cs" />
     <Compile Include="Models\Common\ActionNameSummaryModel.cs" />
     <Compile Include="Models\Common\CommonModel.cs" />
     <Compile Include="Models\Common\ControllerNameModel.cs" />
