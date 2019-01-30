@@ -7,6 +7,8 @@ using Nois.Framework.Histories;
 using Nois.Services.Data;
 using Nois.Services.Products;
 using Nois.Services.Categories;
+using Nois.Services.Stores;
+using Nois.Core.Domain;
 
 namespace Nois.Api
 {
@@ -43,6 +45,8 @@ namespace Nois.Api
             builder.RegisterType<WorkContext>().As<IWorkContext>().InstancePerLifetimeScope();
             builder.RegisterType<ProductService>().As<IProductService>().InstancePerLifetimeScope();
             builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
+            builder.RegisterType<StoreService>().As<IStoreService>().InstancePerLifetimeScope();
+            builder.RegisterType<OrderItem>().As<IStoreService>().InstancePerLifetimeScope();
 
             //history
             builder.RegisterType<CustomHistoryService>().As<IHistoryService>().InstancePerLifetimeScope();

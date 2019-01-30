@@ -46,8 +46,12 @@
     <Compile Include="Categories\ICategoryService.cs" />
     <Compile Include="Data\IWorkContext.cs" />
     <Compile Include="Histories\CustomHistoryService.cs" />
+    <Compile Include="OrderItems\IOrderItemService.cs" />
+    <Compile Include="OrderItems\OrderItemService.cs" />
     <Compile Include="Products\IProductService.cs" />
     <Compile Include="Products\ProductService.cs" />
+    <Compile Include="Stores\IStoreService.cs" />
+    <Compile Include="Stores\StoreService.cs" />
     <Compile Include="Users\ActionNameService.cs" />
     <Compile Include="Users\IActionNameService.cs" />
     <Compile Include="Users\IPermissionService.cs" />

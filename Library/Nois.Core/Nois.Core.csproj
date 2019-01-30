@@ -42,8 +42,10 @@
     <Compile Include="Domain\Authentication\MemberLoginResults.cs" />
     <Compile Include="Domain\Authentication\RefreshToken.cs" />
     <Compile Include="Domain\Category.cs" />
+    <Compile Include="Domain\OrderItem.cs" />
     <Compile Include="Domain\Product.cs" />
     <Compile Include="Domain\Resources\Resource.cs" />
+    <Compile Include="Domain\Store.cs" />
     <Compile Include="Domain\Users\ActionName.cs" />
     <Compile Include="Domain\Users\Constant.cs" />
     <Compile Include="Domain\Users\Permission.cs" />

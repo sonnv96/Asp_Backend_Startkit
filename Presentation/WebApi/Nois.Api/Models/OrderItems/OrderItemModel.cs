@@ -8,138 +8,121 @@ using System.Collections.Generic;
 using Nois.WebApi.Framework;
 using Nois.Core.Domain;
 
-namespace Nois.Api.Models.Products
+namespace Nois.Api.Models.OrderItems
 {
 
     #region Models
 
     /// <summary>
-    /// Product item model
+    /// OrderItem item model
     /// </summary>
-    public class ProductModel
+    public class OrderItemModel
     {
         /// <summary>
-        /// Product identity
+        /// OrderItem identity
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// ProductModel Name
+        /// OrderItem name
         /// </summary>
-        public string Name { get; set; }
-
+        public int Name { get; set; }
         /// <summary>
-        /// ProductModel Quantity
+        /// OrderItem Quantity
         /// </summary>
         public int Quantity { get; set; }
 
         /// <summary>
-        /// ProductModel Price
+        /// OrderItem Price
         /// </summary>
         public int Price { get; set; }
 
         /// <summary>
-        /// ProductModel Discount
+        /// OrderItem Discount
         /// </summary>
         public int Discount { get; set; }
-
-        /// <summary>
-        /// DatePurchase DatePurchase
-        /// </summary>
-        public DateTime? DatePurchase { get; set; }
     }
 
     /// <summary>
-    /// Product list model
+    /// OrderItem list model
     /// </summary>
-    public class ProductListModel : ApiJsonResult
+    public class OrderItemListModel : ApiJsonResult
     {
         /// <summary>
         /// Default contructor
         /// </summary>
-        public ProductListModel()
+        public OrderItemListModel()
         {
-            ProductList = new List<ProductModel>();
-            Total = 0;
+            OrderItemList = new List<OrderItemModel>();
         }
         public int Total { get; set; }
         /// <summary>
         /// List of user roles
         /// </summary>
-        public List<ProductModel> ProductList { get; set; }
+        public List<OrderItemModel> OrderItemList { get; set; }
     }
 
     /// <summary>
-    /// Product detail model
+    /// OrderItem detail model
     /// </summary>
-    public class ProductDetailModel : ApiJsonResult
+    public class OrderItemDetailModel : ApiJsonResult
     {
         /// <summary>
-        /// Product identity
+        /// OrderItem identity
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// ProductModel Name
+        /// OrderItem name
         /// </summary>
-        public string Name { get; set; }
+        public int Name { get; set; }
 
         /// <summary>
-        /// ProductModel Quantity
+        /// OrderItem Quantity
         /// </summary>
         public int Quantity { get; set; }
 
         /// <summary>
-        /// ProductModel Price
+        /// OrderItem Price
         /// </summary>
         public int Price { get; set; }
 
         /// <summary>
-        /// ProductModel Discount
+        /// OrderItem Discount
         /// </summary>
         public int Discount { get; set; }
-
-        /// <summary>
-        /// DatePurchase DatePurchase
-        /// </summary>
-        public DateTime? DatePurchase { get; set; }
     }
 
     /// <summary>
-    /// Product edit model
+    /// OrderItem edit model
     /// </summary>
-    [Validator(typeof(ProductEditValidator))]
-    public class ProductEditModel
+    [Validator(typeof(OrderItemEditValidator))]
+    public class OrderItemEditModel
     {
         /// <summary>
-        /// Product identity
+        /// OrderItem identity
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// ProductModel Name
+        /// OrderItem name
         /// </summary>
-        public string Name { get; set; }
+        public int Name { get; set; }
 
         /// <summary>
-        /// ProductModel Quantity
+        /// OrderItem Quantity
         /// </summary>
         public int Quantity { get; set; }
 
         /// <summary>
-        /// ProductModel Price
+        /// OrderItem Price
         /// </summary>
         public int Price { get; set; }
 
         /// <summary>
-        /// ProductModel Discount
+        /// OrderItem Discount
         /// </summary>
         public int Discount { get; set; }
-
-        /// <summary>
-        /// DatePurchase DatePurchase
-        /// </summary>
-        public DateTime? DatePurchase { get; set; }
     }
 
     #endregion
@@ -147,7 +130,7 @@ namespace Nois.Api.Models.Products
     #region Mappings
 
     /// <summary>
-    /// Implement Product Map
+    /// Implement OrderItem Map
     /// </summary>
     public class MapperRegistrar : IMapperRegistrar
     {
@@ -161,10 +144,10 @@ namespace Nois.Api.Models.Products
 
         public void Register(IMapperConfigurationExpression config)
         {
-            config.CreateMap<Product, ProductModel>();
-            config.CreateMap<Product, ProductDetailModel>();
-            config.CreateMap<Product, ProductEditModel>();
-            config.CreateMap<ProductEditModel, Product>();
+            config.CreateMap<OrderItem, OrderItemModel>();
+            config.CreateMap<OrderItem, OrderItemDetailModel>();
+            config.CreateMap<OrderItem, OrderItemEditModel>();
+            config.CreateMap<OrderItemEditModel, OrderItem>();
         }
     }
 
@@ -173,16 +156,16 @@ namespace Nois.Api.Models.Products
     #region Validators
 
     /// <summary>
-    /// Validate for ProductEditModel
+    /// Validate for OrderItemEditModel
     /// </summary>
-    public class ProductEditValidator : AbstractValidator<ProductEditModel>
+    public class OrderItemEditValidator : AbstractValidator<OrderItemEditModel>
     {
         /// <summary>
         /// Define validators here
         /// </summary>
-        public ProductEditValidator()
+        public OrderItemEditValidator()
         {
-            this.RuleFor(s => s.Name).NotNull().WithMessage("Name is requeried");
+
         }
     }
 

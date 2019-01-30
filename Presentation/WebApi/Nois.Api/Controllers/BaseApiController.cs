@@ -16,6 +16,8 @@ using Nois.Framework.Loggings;
 using Nois.Framework.Localization;
 using Nois.Services.Products;
 using Nois.Services.Categories;
+using Nois.Services.Stores;
+using Nois.Services.OrderItems;
 
 namespace Nois.Api.Controllers
 {
@@ -120,6 +122,15 @@ namespace Nois.Api.Controllers
         /// category service
         /// </summary>
         protected ICategoryService _categoryService { get { return GetService<ICategoryService>(); } }
+        /// <summary>
+        /// store service
+        /// </summary>
+        protected IStoreService _storeService { get { return GetService<IStoreService>(); } }
+
+        /// <summary>
+        /// orderitem service
+        /// </summary>
+        protected IOrderItemService _orderItemService { get { return GetService<IOrderItemService>(); } }
         #endregion
 
         #region Methods
